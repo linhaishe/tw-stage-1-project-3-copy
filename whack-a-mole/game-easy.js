@@ -1,26 +1,33 @@
-window.onload = function () {
+window.onload = function () {//这个开头window.onload的用意？？？？？
 
-    const holes = document.querySelectorAll('.hole');
-    const scoreBoard = document.querySelector('.score');
-    const moles = document.querySelectorAll('.mole');
+    const holes = document.querySelectorAll('.hole');//洞
+    //querySelectorAll 获取文档中 class="example" 的所有元素
+    //document.querySelector("#demo");获取文档中 id="demo" 的元素
+    const scoreBoard = document.querySelector('.score');//分数
+    const moles = document.querySelectorAll('.mole');//获取所有地鼠
     const startBtn = document.getElementById('start_btn');
     let titleH1 = document.getElementById('title');
+    //为什么有些颜色是灰色的？
 
     let lastHole;
     let timeUp = false;
     let score = 0;
-    let gameTime = 10000;
+    let gameTime = 30000;//30秒，从10秒修改成30秒
 
-
+    //addEventListener，在文档中添加点击事件。当用户在文档任何地方点击时，在 id="demo" 的 <p> 元素上输出 "Hello World"：
+    //document.addEventListener("click", function(){
+    //document.getElementById("demo").innerHTML = "Hello World";});
     startBtn.addEventListener('click', function () {
-        showBtnAnimation();
-        startGame();
+        showBtnAnimation();//按钮动画
+        startGame();//开始游戏
     }, false);
+    //false- 默认。事件句柄在冒泡阶段执行
 
     function showBtnAnimation() {
         event.preventDefault();
-
+        //event.preventDefault() 方法阻止元素发生默认的行为。
         startBtn.classList.add('animate');
+        //HTML DOM classList 属性 为元素添加 class
         // 按钮动画延时，按钮动画结束后发生的事：换为正常状态（class中的animate去掉），开始按钮消失
         setTimeout(() => {
             startBtn.classList.remove('animate');
@@ -28,11 +35,10 @@ window.onload = function () {
         }, 700);
     }
 
-
+    //为什么要先写游戏结束时候的代码？？？？？
     function startGame() {
         resetScoreAndTime();
         peep();
-
         setTimeout(() => {
             // TODO: 写当游戏时间结束后要发生的事
         }, gameTime)
