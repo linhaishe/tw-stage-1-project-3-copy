@@ -35,7 +35,6 @@ window.onload = function () {//这个开头window.onload的用意？？？？？
         }, 700);
     }
 
-    //为什么要先写游戏结束时候的代码？？？？？
     function startGame() {
         resetScoreAndTime();
         peep();
