@@ -60,7 +60,7 @@ window.onload = function () {//这个开头window.onload的用意？？？？？
      */
     function peep() {
         const time = randomTime(200, 1000);//随机时间出现
-        const hole = randomHole(holes);随机洞口出现
+        const hole = randomHole(holes);//随机洞口出现
         comeOutAndStop(hole, time);
     }
 
@@ -74,7 +74,7 @@ window.onload = function () {//这个开头window.onload的用意？？？？？
     function randomTime(min, max) {
         // TODO: 写生成随机数的逻辑
         return Math.round(Math.random() * (max - min) + min);
-        //return 0;
+        //return 0;//老鼠不会出洞
     }
 
     /**
@@ -90,10 +90,9 @@ window.onload = function () {//这个开头window.onload的用意？？？？？
         if (hole === lastHole) {
             return randomHole(holes);
         }
-
         lastHole = hole;
         return hole;
-        //return null;
+        //return null;//老鼠不出现
     }
 
     /**
@@ -105,7 +104,6 @@ window.onload = function () {//这个开头window.onload的用意？？？？？
     function comeOutAndStop(hole, time) {
         // TODO: 写地鼠出洞并停留相应时间，如果游戏时间未结束(timeUp)，继续出洞(peep).
         hole.classList.add('up');
-
         setTimeout(() => {
           hole.classList.remove('up');
           if(!timeUp) peep();
