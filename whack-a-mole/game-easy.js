@@ -10,7 +10,7 @@ window.onload = function () {//这个开头window.onload的用意？？？？？
     //为什么有些颜色是灰色的？因为值没有设置√
 
     let lastHole;
-    let timeUp = false;//
+    let timeUp = false;//游戏结束？？？
     let score = 0;
     let gameTime = 10000;//10秒游戏时间
 
@@ -43,7 +43,14 @@ window.onload = function () {//这个开头window.onload的用意？？？？？
         //setTimeout(JavaScript 函数, 等待的毫秒数)
         score = 0;
         timeUp = false;
-        setTimeout(() => timeUp = true,10000);
+            // 1、标题变为“Time Up!”+SCORE
+            // 2、显示按钮：变为“Replay!”
+        setTimeout(function(){
+            timeUp = true;
+            titleH1.innerText = 'TIME UP!';
+            startBtn.innerText = 'Replay!';
+            startBtn.style.display = 'inline-block';
+        },10000);
     }
 
     /**
